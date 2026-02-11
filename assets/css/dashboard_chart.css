@@ -1,0 +1,54 @@
+/* --- Chart Card Styling ---*/
+.chart-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    background: var(--white-glass);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--leaf-300);
+}
+
+/* Title inside the card */
+.chart-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+}
+
+/* Chart canvas container */
+.chart-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    min-height: 280px;
+    max-height: 500px;
+}
+
+/* Chart canvas responsive sizing */
+#myChart {
+    width: 100% !important;
+    height: 700px !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    #myChart {
+        height: 300px !important;
+    }
+
+    .chart-card h3 {
+        font-size: 1.1rem;
+    }
+}

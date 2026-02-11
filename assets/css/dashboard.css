@@ -1,0 +1,385 @@
+:root {
+    --leaf-50: #eef9f1;
+    --leaf-100: #d6f0dc;
+    --leaf-300: #9fd7b3;
+    --leaf-500: #4faf7d;
+    --leaf-600: #3d8b61;
+    --leaf-700: #2f6d4a;
+    --text-dark: #1d3326;
+    --text-light: #5c7a67;
+    --white-glass: rgba(255, 255, 255, 0.9);
+    --shadow-card: 0 10px 30px rgba(33, 83, 55, 0.05);
+    --shadow-hover: 0 15px 40px rgba(33, 83, 55, 0.1);
+    font-family: "Inter", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    color: var(--text-dark);
+    min-height: 100vh;
+    padding-top: 110px;
+}
+
+@media (min-width: 768px) {
+    .user-name {
+        display: block;
+    }
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* --- 4. WELCOME SECTION --- */
+.welcome-section {
+    margin-bottom: 40px;
+}
+
+.welcome-section h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.highlight {
+    color: var(--leaf-500);
+}
+
+.subtitle {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* --- 5. DASHBOARD GRID --- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+/* --- 6. CARDS STYLING --- */
+.dash-card {
+    background: var(--white-glass);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.dash-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--leaf-300);
+}
+
+/* Remove the problematic .chart class */
+.chart {
+    /* Remove margin-top that breaks alignment */
+}
+
+/* Icons */
+.card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.green-icon {
+    background: var(--leaf-100);
+    color: var(--leaf-700);
+}
+
+.blue-icon {
+    background: #e0f2fe;
+    color: #0284c7;
+}
+
+.orange-icon {
+    background: #ffedd5;
+    color: #ea580c;
+}
+
+/* Typography inside cards */
+.dash-card h3 {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.big-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1;
+}
+
+.trend {
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.trend.positive {
+    color: var(--leaf-600);
+}
+
+/* FIX: Make dashboard-section flexible */
+.dashboard-section {
+    height: auto;
+    min-height: 300px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-info {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Action Buttons (Bonus) */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--leaf-300);
+    padding: 10px;
+    border-radius: 12px;
+    color: var(--leaf-700);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.btn-outline:hover {
+    background: var(--leaf-500);
+    color: white;
+    border-color: var(--leaf-500);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Badge ===== */
+.badge-simple-card {
+    background: var(--white-glass);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 30px;
+}
+
+.badge-simple-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--leaf-300);
+}
+
+.badge-simple-header {
+    margin-bottom: 20px;
+}
+
+.badge-simple-header h2 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.badge-simple-header p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.badge-simple-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--leaf-300) var(--leaf-50);
+}
+
+.badge-simple-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.badge-simple-grid::-webkit-scrollbar-track {
+    background: var(--leaf-50);
+    border-radius: 10px;
+}
+
+.badge-simple-grid::-webkit-scrollbar-thumb {
+    background: var(--leaf-300);
+    border-radius: 10px;
+}
+
+.badge-simple-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--leaf-500);
+}
+
+.badge-simple-item {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    min-width: 300px;
+    flex-shrink: 0;
+}
+
+.badge-simple-item-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.badge-simple-item-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.badge-simple-item-icon i {
+    transform: translateY(0px);
+}
+
+.badge-simple-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.badge-simple-item-info h4 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.badge-simple-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(33, 83, 55, 0.15);
+    border-color: var(--leaf-300);
+    cursor: pointer;
+}
+
+.badge-simple-item-info .criteria {
+    font-size: 14px;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.badge-simple-item-info .badge-value {
+    font-size: 14px;
+    color: var(--leaf-light);
+    font-weight: 500;
+    margin: 0;
+}
+
+.badge-simple-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-light);
+}
+
+.badge-simple-empty h3 {
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+
+.dash-card.chart {
+    margin-top: 30px;
+}
+
+.dashboard-grid {
+    margin-top: 40px;
+}
+
+#totalCO2Chart,
+#adminCO2Chart {
+    width: 100% !important;
+    height: 300px !important;
+    max-height: 100%;
+
+}
+
+.dash-card.chart h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .welcome-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .badge-simple-item {
+        min-width: 280px;
+    }
+
+    .dashboard-section {
+        min-height: 250px;
+    }
+
+    #totalCO2Chart,
+    #adminCO2Chart {
+        height: 250px !important;
+    }
+}

@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Faustina:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Noto+Sans+Syriac:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@300&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body-container {
+    padding-top: 110px;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Search bar container */
+form {
+    display: flex;
+    margin: 10px 50px;
+    justify-content: space-between;
+}
+
+/* Search input styling */
+#searching,
+#sorting {
+    padding: 12px 16px;
+    border: 2px solid #c9e5d1;
+    border-radius: 25px;
+
+    font-size: 15px;
+    font-family: "Inter", sans-serif;
+    transition: all 0.25s ease;
+
+    outline: none;
+    background: #f8fffa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+#searching {
+    width: 70%;
+}
+
+#sorting {
+    width: 25%;
+}
+
+#searching:hover,
+#sorting:hover {
+    border-color: #98d7a3;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+#searching:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.25);
+    background: #fff;
+}
+
+#searching::placeholder {
+    color: #8ab89a;
+    font-weight: bold;
+}
+
+.no-result {
+    text-align: center;
+    padding: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.banner {
+    background-color: white;
+    padding: 20px;
+    margin: 25px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px groove #E5E5E5;
+    border-radius: 20px;
+}
+
+.subtitle {
+    padding: 5px;
+    font-family: "Inter", sans-serif;
+    font-weight: 350;
+}
+
+#title-bold {
+    font-weight: bold;
+}
+
+/* table design */
+.table-zone {
+    margin: 25px 50px;
+    font-family: "Inter", sans-serif;
+}
+
+#notify {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+#notify th {
+    background-color: #C6EFD3;
+    color: #2e4f2e;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid #e5ece6;
+}
+
+.left {
+    text-align: left;
+}
+
+/* Table cells */
+#notify td {
+    padding: 14px;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+/* Last row no border */
+#notify tr:last-child td {
+    border-bottom: none;
+}
+
+#notify tr:hover td,
+#notify tr:nth-child(even):hover td {
+    background-color: #e0f2e9;
+}
+
+#notify tr:nth-child(even) td {
+    background-color: #f3f9f5;
+}
+
+.read-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+
+    transition: background-color 0.3s ease;
+}
+
+.read-btn:hover {
+    background-color: #45a049;
+}
+
+.read-btn.read {
+    background-color: grey;
+    cursor: default;
+}
+
+/* Container for page info */
+.page-info {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #2E7D32;
+    /* deep green for sustainability vibe */
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 20px;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: #388E3C;
+    background-color: #E8F5E9;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 1px solid #C8E6C9;
+    font-size: 0.9rem;
+}
+
+.pagination a:hover {
+    background-color: #C8E6C9;
+    color: #1B5E20;
+}
+
+
+.pagination a.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+select:hover,
+select:focus {
+    background: #dddddd;
+    cursor: pointer;
+}
+
+select,
+::picker(select) {
+    /*change both open and close state of the select*/
+    appearance: base-select;
+    /*a base select pattern*/
+}
+
+select::picker-icon {
+    /*the dropdown icon*/
+    color: #999999;
+    transition: 0.4s rotate;
+}
+
+select:open::picker-icon {
+    rotate: 180deg;
+}
+
+option {
+    gap: 20px;
+    padding: 10px;
+    padding-left: 15px;
+    transition: 0.4s;
+    border: 1px solid #dddddd;
+}
+
+option:first-of-type {
+    /*only change the dropdown top border*/
+    border-radius: 8px 8px 0 0;
+}
+
+option:last-of-type {
+    /*only change the dropdown bottom border*/
+    border-radius: 0 0 8px 8px;
+}
+
+::picker(select) {
+    border-radius: 25px;
+    border: none;
+    border: 1px solid #dddddd;
+
+    /*animation*/
+    opacity: 0;
+    transition: all 0.4s allow-discrete;
+    /*Allows properties that cannot be smoothly interpolated to participate in transitions using discrete (jump) changes, improving the overall visual effect.*/
+}
+
+select:open::picker(select):popover-open {
+    opacity: 1;
+}
+
+@starting-style {
+
+    /*起始状态*/
+    select:open::picker(select):popover-open {
+        opacity: 0;
+        /*start from opacity 0 until 1*/
+    }
+}
+
+option:not(option:last-of-type) {
+    border-bottom: none;
+}
+
+option:nth-of-type(odd) {
+    /*set different background color on odd and even*/
+    background: rgba(104, 231, 155, 0.2);
+}
+
+option:hover {
+    cursor: pointer;
+    background: rgba(78, 191, 76, 0.5);
+}
+
+option:checked {
+    /*style the currently selected option*/
+    font-weight: bold;
+}
+
+option::checkmark {
+    order: 1;
+    /*move from start if order>0*/
+    margin-left: auto;
+    content: "✅";
+}
+
+
+@media screen and (max-width: 680px) {
+    .table-zone {
+        overflow-x: auto;
+        margin: 15px 20px;
+    }
+
+    #notify {
+        min-width: 600px;
+    }
+
+    .banner {
+        margin: 25px 25px;
+        gap: 10px;
+    }
+
+    form {
+        justify-content: center;
+        margin: 15px 20px;
+    }
+
+    #searching {
+        width: 70%;
+    }
+
+    #sorting {
+        width: 30%;
+    }
+
+    .pagination {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

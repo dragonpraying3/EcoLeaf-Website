@@ -1,0 +1,347 @@
+/* basic color */
+:root {
+    --leaf-50: #eef9f1;
+    --leaf-100: #d6f0dc;
+    --leaf-300: #9fd7b3;
+    --leaf-500: #4faf7d;
+    --leaf-600: #3d8b61;
+    --leaf-700: #2f6d4a;
+    --red-100: #fee2e2;
+    --red-600: #dc2626;
+    --text-dark: #1d3326;
+    --text-light: #5c7a67;
+    --border: #c4d9c7;
+    --shadow-soft: 0 20px 50px rgba(33, 83, 55, 0.08);
+    font-family: "Inter", sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.register-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: var(--text-dark);
+}
+
+/* card styling */
+.portal-card {
+    width: 100%;
+    max-width: 600px; /* Wider for forms */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 32px;
+    padding: 40px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    animation: fadeIn 0.5s ease-out;
+    transition: max-width 0.3s ease;
+}
+
+/* Expand card when registering */
+.portal-card.register-mode {
+    max-width: 800px;
+}
+
+.icon-slot {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background: var(--leaf-50);
+    border-radius: 50%;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.welcome-copy p {
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--leaf-500);
+    margin-bottom: 8px;
+}
+
+.welcome-copy h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+/* --- REMEMBER ME ROW --- */
+.remember-row {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    margin-top: 12px;  
+    margin-bottom: 16px; 
+    padding-left: 2px; 
+}
+
+.remember-label {
+    display: flex;
+    flex-direction: row !important; 
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    font-weight: 500;
+    user-select: none; 
+}
+
+.remember-label input[type="checkbox"] {
+    width: 18px !important; 
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: var(--leaf-500); 
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+.remember-label span {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.tab-bar {
+    display: flex;
+    background: var(--leaf-50);
+    padding: 5px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    border: 1px solid var(--leaf-100);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    border-radius: 12px;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.tab-btn.active {
+    background: #ffffff;
+    color: var(--leaf-700);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.form-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.alert {
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alert.success {
+    background: var(--leaf-100);
+    color: var(--leaf-700);
+    border: 1px solid var(--leaf-300);
+}
+
+.alert.error {
+    background: var(--red-100);
+    color: var(--red-600);
+    border: 1px solid #fecaca;
+}
+
+.alert-close {
+    cursor: pointer;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+/* --- 6. FORM STYLING --- */
+.form-grid {
+    display: grid;
+    gap: 16px;
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+/* Responsive Grid for Registration */
+.extra-grid {
+    grid-template-columns: 1fr;
+    /* Hidden by default (handled by JS usually),
+       but adding transition support */
+    display: none;
+    opacity: 0;
+    animation: slideDown 0.4s forwards;
+}
+
+/* When JS adds 'active' class or changes style to block */
+.extra-grid.active {
+    display: grid;
+}
+
+@media (min-width: 600px) {
+    .extra-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .full-span {
+        grid-column: span 2;
+    }
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+label span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    background: #ffffff;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: var(--leaf-500);
+    box-shadow: 0 0 0 3px var(--leaf-100);
+}
+
+/* Helper Text */
+.helper-text {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 2px;
+}
+
+/* Radio Group */
+.control-group span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.inline-group {
+    display: flex;
+    gap: 20px;
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 10px 16px;
+    border-radius: 12px;
+}
+
+.inline-group label {
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+    accent-color: var(--leaf-500);
+}
+
+/* --- 7. BUTTONS --- */
+.form-actions {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.primary-btn {
+    flex: 2;
+    background: var(--leaf-500);
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.primary-btn:hover {
+    background: var(--leaf-600);
+    transform: translateY(-2px);
+}
+
+.back-btn {
+    flex: 1; 
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+    color: var(--text-dark);
+    background: var(--leaf-50);
+    border-color: var(--leaf-300);
+
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

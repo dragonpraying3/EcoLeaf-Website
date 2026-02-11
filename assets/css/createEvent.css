@@ -1,0 +1,155 @@
+
+.create-container {
+    margin: 140px auto 50px;
+    max-width: 1000px;
+    background: #ddf3e4;
+    padding: 35px;
+    border-radius: 25px;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+}
+
+.event-form input:focus,
+.event-form textarea:focus,
+.event-form select:focus {
+    outline: none;
+    border-color: #2ecc71;
+}
+
+.create-container h2 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #333;
+    font-size: 0.95em;
+    margin-bottom: 35px;
+}
+
+
+.event-form {
+    width: 100%;
+    text-align: left;
+}
+
+.event-form label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+    margin-top: 15px;
+}
+
+.event-form input,
+.event-form textarea,
+.event-form select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    font-size: 1em;
+    font-family: "Open Sans", sans-serif;
+}
+
+.event-form textarea {
+    height: 130px;
+    resize: none;
+}
+
+
+.form-grid {
+    display: grid;
+    gap: 20px;
+    align-items: start;
+}
+
+
+.area-title { grid-area: title; }
+.area-description { grid-area: description; }
+.area-image { grid-area: image; }
+.area-leaf { grid-area: leaf; }
+.area-date { grid-area: date; }
+.area-start { grid-area: start; }
+.area-end { grid-area: end; }
+.area-venue { grid-area: venue; }
+.area-category { grid-area: category; }
+.area-capacity { grid-area: capacity; }
+
+
+.submit-btn {
+    width: 100%;
+    background: #2ecc71;
+    color: white;
+    padding: 15px;
+    font-size: 1.1em;
+    border-radius: 20px;
+    border: none;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #27ae60;
+    opacity: 0.9;
+}
+
+
+html, body {
+    min-width: 320px;
+    overflow-x: auto;
+}
+
+@media (min-width: 769px) {
+    .form-grid {
+        grid-template-columns: 2fr 1fr 1fr; 
+        grid-template-areas:
+            "title title title"
+            "description image image"
+            "description leaf leaf"
+            "date start end"
+            "venue category category"
+            "capacity capacity capacity";
+    }
+
+    
+    .area-description { max-width: 600px; }
+    .area-date { max-width: 300px; }
+    .area-venue { max-width: 400px; }
+
+    
+    .area-image, .area-leaf {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-areas:
+            "title"
+            "description"
+            "image"
+            "leaf"
+            "date"
+            "start"
+            "end"
+            "venue"
+            "category"
+            "capacity";
+    }
+
+    .create-container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+    .subtitle {
+        font-size: 0.9em;
+        text-align: center;
+    }
+}

@@ -1,0 +1,967 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Faustina:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Noto+Sans+Syriac:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@300&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+/*Inter*/
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Faustina:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Noto+Sans+Syriac:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@300&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*animation*/
+.body-container {
+    animation: fadeIn 0.6s ease-out;
+    padding-top: 111px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title-box {
+    background-color: white;
+    padding: 20px;
+    margin: 25px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px groove #E5E5E5;
+    border-radius: 20px;
+}
+
+
+.create-post-button {
+    display: grid;
+    place-items: center;
+}
+
+#create-post {
+    padding: 10px;
+    border: none;
+    line-height: 2;
+    border-radius: 15px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 0.9em;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+#create-post:hover,
+.TRADE:hover,
+.approve-trading:hover,
+.complete-post:hover,
+#publish:hover,
+#trade:hover {
+    cursor: pointer;
+    background-color: #4faf7d;
+}
+
+.reject-trading:hover {
+    cursor: pointer;
+    background-color: #f44336;
+}
+
+.title {
+    padding: 5px;
+    font-family: "Inter", sans-serif;
+    font-weight: 350;
+}
+
+#title-bold {
+    font-weight: bold;
+}
+
+/*zone-post*/
+.post-block {
+    margin: 25px 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    /*here set the min width is 290px 
+    when the width of post is <290px , it will stand the 1fr of the space*/
+    gap: 40px 70px;
+}
+
+/*flexbox allows vertical stretching + pushing elements to the bottom*/
+.post-display {
+    background-color: white;
+    width: 100%;
+    border-radius: 20px;
+    height: 100%;
+    border: 1px groove #E5E5E5;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.post-display:hover {
+    box-shadow: 2px 7px 9px rgba(0, 0, 0, 0.1);
+}
+
+.post-word {
+    padding: 15px;
+    flex: 1;
+    /*flex-grow*/
+    display: flex;
+    flex-direction: column;
+}
+
+.post-process {
+    margin-top: auto;
+}
+
+.post-detail,
+.post-detail2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.post-owner {
+    font-size: 0.96em;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 5px;
+    width: 55%;
+    overflow-wrap: break-word;
+    line-height: 2;
+}
+
+.post-time {
+    width: 45%;
+    font-weight: 500;
+    font-size: 0.80em;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 5px;
+    flex: 1;
+    /* line-height: 3; */
+}
+
+.POSTtitle {
+    width: 70%;
+    overflow-wrap: break-word;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.post-point {
+    width: 28%;
+    display: flex;
+    gap: 5px;
+    padding-left: 7px;
+    overflow-wrap: break-word;
+    font-size: 16px;
+    border: 1.9px groove #6cae39;
+    border-radius: 25px;
+}
+
+.leaf {
+    line-height: 2;
+    flex: 0 0 40px;
+    overflow-wrap: break-word;
+    overflow: auto;
+
+    font-weight: 900;
+    font-style: normal;
+    font-size: 0.95em;
+    color: #6cae39;
+}
+
+.POSTdescript {
+    width: 100%;
+    padding: 5px 0px;
+}
+
+.POSTdescript {
+    line-height: 1.5;
+    font-size: 0.95em;
+    font-weight: 400;
+    font-style: normal;
+    color: #686565;
+    overflow-wrap: break-word;
+}
+
+
+.bx-leaf {
+    color: #6cae39;
+    padding-left: 2px;
+}
+
+.bxs-face,
+.bx-location,
+.bx-calendar-week,
+.bx-clock-10 {
+    font-size: 20px;
+}
+
+.image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-container img {
+    position: absolute;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.TRADE,
+.approve-trading,
+.reject-trading,
+.complete-post {
+    border: none;
+    padding: 5px;
+    width: 100%;
+
+    line-height: 2;
+    border-radius: 20px;
+    font-weight: 500;
+
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.waiting-post {
+    border: none;
+    padding: 5px;
+    width: 100%;
+
+    line-height: 2;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+
+    background-color: #ebe9e9;
+    color: black;
+    margin-bottom: 10px;
+
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+.complete-post {
+    margin-bottom: 10px;
+}
+
+#request-management,
+#trade-management {
+    scroll-margin-top: 111px;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.trade-item {
+    line-height: 1;
+    margin-bottom: 9px;
+    flex: 1;
+}
+
+.trade-item div {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    overflow-wrap: break-word;
+}
+
+.trade-item div i {
+    display: flex;
+    align-items: flex-start;
+}
+
+.postOwner,
+.post-trader,
+.post-location,
+.post-date,
+.post-timeRange {
+    font-size: 1rem;
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+
+.trade-item div i {
+    transform: translateY(0px);
+}
+
+.timeRemain {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: auto;
+    font-size: 0.8rem;
+    /* font-family: "Merriweather", serif; */
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/*create-post-block*/
+/*modal*/
+.create-post-block {
+    background-color: rgba(73, 73, 67, 0.4);
+    z-index: -1;
+    opacity: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-self: center;
+    align-items: center;
+
+    transition: all 0.5s ease-in-out;
+}
+
+/*the open class using add classList*/
+.create-post-block.open {
+    opacity: 1;
+    z-index: 999;
+}
+
+.create-post-box {
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.1);
+
+    transition: all 0.1s ease;
+}
+
+/*animation*/
+.create-post-box.splash,
+.trading-box.splash {
+    animation: splashPop 0.35s ease-out;
+}
+
+@keyframes splashPop {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.0);
+    }
+
+    60% {
+        transform: scale(1.03);
+        box-shadow: 0px 14px 25px rgba(0, 0, 0, 0.18);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.validation-error,
+.empty_errors {
+    margin-top: 10px;
+    text-align: center;
+    color: red;
+}
+
+.close-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 34px;
+    height: 34px;
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    position: relative;
+}
+
+.bx-x-circle {
+    font-size: 30px;
+    line-height: 1;
+}
+
+#close-button i {
+    position: absolute;
+    bottom: 7px;
+}
+
+#close-button:hover,
+#exit-button:hover {
+    cursor: pointer;
+    color: #6cae39;
+}
+
+.banner-line {
+    width: 70%;
+    overflow-wrap: break-word;
+    padding: 25px 25px 10px 25px;
+}
+
+.post-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.post-title,
+.post-descript {
+    font-size: 1.2em;
+}
+
+.submit-post,
+.submit-trade {
+    padding: 0px 20px 10px 20px;
+    width: 100%;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    border: 1px solid #ccc;
+    background-color: #F3F3F5;
+}
+
+input[type="number"] {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    width: 40%;
+    border: 1px solid #ccc;
+    background-color: #F3F3F5;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+input[type="file"] {
+    display: none;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.image-block {
+    position: relative;
+    padding: 20px;
+    width: 100%;
+    min-height: 120px;
+    border: 2px dotted #ccc;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bx-image-portrait {
+    font-size: 45px;
+    position: absolute;
+    top: 13px;
+    color: #8c8c8e;
+}
+
+#file-label {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    font-size: 18px;
+    color: #6f6f6f;
+    padding-bottom: 25px;
+}
+
+.submit-post div {
+    margin-bottom: 15px;
+}
+
+.label {
+    line-height: 35px;
+    padding-left: 3px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+input[type="submit"] {
+    margin-top: 5px;
+    width: 100%;
+
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+
+    background-color: black;
+    color: white;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+textarea:focus,
+select:focus,
+input[type="datetime-local"]:active {
+    outline: none;
+    /*remove the default outline*/
+    border-color: 2px solid #4faf7d;
+    /* box-shadow: 0 1px 4px rgba(79, 175, 125, 0.7); */
+    box-shadow: 0 0 0 3px rgba(79, 175, 125, 0.2);
+}
+
+
+
+
+/*trading-block*/
+/*modal*/
+.trade-post-block {
+    background-color: rgba(73, 73, 67, 0.4);
+    z-index: -1;
+    opacity: 0;
+    position: fixed;
+    width: 100%;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-self: center;
+    align-items: center;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.trade-post-block.open {
+    opacity: 1;
+    z-index: 999;
+}
+
+.trading-box {
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.1);
+}
+
+#exit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 34px;
+    height: 34px;
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    position: relative;
+}
+
+#exit-button i {
+    position: absolute;
+    bottom: 7px;
+}
+
+.close-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.banner {
+    width: 70%;
+    overflow-wrap: break-word;
+    padding: 25px 25px 10px 25px;
+}
+
+.submit-trade div {
+    margin-bottom: 10px;
+}
+
+select:hover,
+select:focus {
+    background: #dddddd;
+    cursor: pointer;
+}
+
+select,
+::picker(select) {
+    /*change both open and close state of the select*/
+    appearance: base-select;
+    /*a base select pattern*/
+}
+
+select::picker-icon {
+    /*the dropdown icon*/
+    color: #999999;
+    transition: 0.4s rotate;
+}
+
+select:open::picker-icon {
+    rotate: 180deg;
+}
+
+option {
+    gap: 20px;
+    padding: 5px;
+    transition: 0.4s;
+    border: 1px solid #dddddd;
+}
+
+option:first-of-type {
+    /*only change the dropdown top border*/
+    border-radius: 8px 8px 0 0;
+}
+
+option:last-of-type {
+    /*only change the dropdown bottom border*/
+    border-radius: 0 0 8px 8px;
+}
+
+::picker(select) {
+    border-radius: 8px;
+    border: none;
+    border: 1px solid #dddddd;
+
+    /*animation*/
+    opacity: 0;
+    transition: all 0.4s allow-discrete;
+    /*Allows properties that cannot be smoothly interpolated to participate in transitions using discrete (jump) changes, improving the overall visual effect.*/
+}
+
+select:open::picker(select):popover-open {
+    opacity: 1;
+}
+
+@starting-style {
+
+    /*起始状态*/
+    select:open::picker(select):popover-open {
+        opacity: 0;
+        /*start from opacity 0 until 1*/
+    }
+}
+
+option:not(option:last-of-type) {
+    border-bottom: none;
+}
+
+option:nth-of-type(odd) {
+    /*set different background color on odd and even*/
+    background: rgba(153, 153, 153, 0.2);
+}
+
+option:hover {
+    cursor: pointer;
+    background: rgba(108, 174, 57, 0.5);
+}
+
+option:checked {
+    /*style the currently selected option*/
+    font-weight: bold;
+}
+
+option::checkmark {
+    order: 1;
+    /*move from start if order>0*/
+    margin-left: auto;
+    content: "✅";
+}
+
+input[type="datetime-local"] {
+    width: 40%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    border: 1px solid #ccc;
+    background-color: #F3F3F5;
+}
+
+input[type="datetime-local"]:hover {
+    cursor: pointer;
+    background-color: #dddddd;
+}
+
+#time-showing {
+    padding-top: 5px;
+    font-size: 0.80em;
+    font-weight: 500;
+    color: #4faf7d;
+
+}
+
+.name-display {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #F3F3F5;
+}
+
+span {
+    font-weight: 900;
+}
+
+/*admin diyModerate.php design*/
+/*modal*/
+.reject-block {
+    background-color: rgba(73, 73, 67, 0.4);
+    z-index: -1;
+    opacity: 0;
+    position: fixed;
+    width: 100%;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-self: center;
+    align-items: center;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.reject-block.open {
+    opacity: 1;
+    z-index: 999;
+}
+
+.reject-box {
+    background-color: white;
+    width: 40%;
+    margin: auto;
+    border-radius: 45px;
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.reject-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-weight: 900;
+    font-size: 1.5em;
+}
+
+.reason-content {
+    padding: 0px 20px;
+    max-height: 400px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar-thumb:hover {
+        /*change the part drag when hover*/
+        background-color: #a8a8a8;
+    }
+
+    &::-webkit-scrollbar-track {
+        /*background of the scroll bar*/
+        -webkit-box-shadow: inset 0 0 6px rgba(83, 83, 83, 0.07);
+        background-color: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar {
+        /*entire scrollbar*/
+        width: 5px;
+        background-color: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        /*the part drag*/
+        background-color: #c1c1c1;
+    }
+}
+
+input[type="radio"] {
+    /* appearance: none; */
+
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+
+    border: 2px solid #999999;
+    transition: 0.2s all linear;
+    margin-right: 2px;
+
+    position: relative;
+    top: 2px;
+}
+
+input[type="radio"]:checked {
+    border: 6px solid #008F7A;
+}
+
+.reject-item {
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.reason-desc {
+    margin-left: 28px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #62625b;
+}
+
+.reason {
+    overflow-wrap: break-word;
+    padding-left: 10px;
+    font-weight: 550;
+}
+
+.main {
+    display: flex;
+}
+
+/*button panel*/
+.reject-button-zone {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding: 15px;
+}
+
+.reject-button-zone button {
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 1rem;
+
+    transition: background-color 0.3s ease;
+}
+
+#cancel {
+    background-color: #ebe9e9;
+}
+
+#cancel:hover {
+    background-color: #c1bebe;
+}
+
+#reject {
+    background-color: #ebe9e9;
+    color: white;
+}
+
+.sentence {
+    padding-left: 10px;
+}
+
+@media screen and (max-width: 680px) {
+
+    /*zone-intro*/
+    .create-post-button,
+    #create-post {
+        width: 100%;
+    }
+
+    .title-box {
+        margin: 25px 25px;
+        gap: 10px;
+    }
+
+    #create-post:active {
+        cursor: pointer;
+        background-color: #6cae39;
+    }
+
+    /*zone-post*/
+    .TRADE:active {
+        cursor: pointer;
+        background-color: #6cae39;
+    }
+
+    .post-block {
+        justify-content: center;
+        margin: 25px 30px;
+    }
+
+    .create-post-box {
+        width: 80%;
+        margin: auto;
+    }
+
+    input[type="number"] {
+        width: 60%;
+    }
+
+    .banner-line,
+    .banner {
+        width: 80%;
+    }
+
+    .trading-box {
+        width: 80%;
+        margin: auto;
+    }
+
+    input[type="datetime-local"] {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .reject-box {
+        width: 80%;
+    }
+
+    .reject-button-zone {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        padding: 15px;
+    }
+
+    .sentence {
+        padding-left: 20px;
+    }
+}

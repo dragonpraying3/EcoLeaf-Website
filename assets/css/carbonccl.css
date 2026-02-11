@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Faustina:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Noto+Sans+Syriac:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@300&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Faustina:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Noto+Sans+Syriac:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@300&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.zone-intro {
+    padding-top: 111px;
+}
+
+.body-container {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.left-stack {
+    display: grid;
+    gap: 16px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e5e5;
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/*Carbon Calculator Styles
+- Cards, sliders, impact panel, breakdown and responsive behavior*/
+.card-title i {
+    font-size: 20px;
+}
+
+.slider-group {
+    display: grid;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.slider-value {
+    font-weight: 700;
+    color: #333;
+}
+
+input[type=number] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.impact-panel {
+    background: #eaf7ea;
+    border-radius: 18px;
+    padding: 18px;
+    border: 1px solid #dfeadf;
+    display: grid;
+    gap: 16px;
+}
+
+.panel-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.stat-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.stat-card .label {
+    color: #555;
+    font-weight: 600;
+}
+
+.stat-card .value {
+    font-weight: 700;
+    color: #b00020;
+    font-size: 1.5em;
+}
+
+#co2Saved {
+    color: #1b5e20;
+}
+
+.net-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    display: grid;
+    gap: 6px;
+    text-align: center;
+}
+
+.net-big {
+    font-size: 20px;
+    font-weight: 800;
+    color: #b00020;
+}
+
+.net-sub {
+    color: #666;
+    font-size: 14px;
+}
+
+.breakdown {
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid #e5e5e5;
+}
+
+.break-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 2px;
+}
+
+.break-item .name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.amount {
+    font-weight: 700;
+}
+
+.pos {
+    color: #b00020;
+}
+
+.neg {
+    color: #1b5e20;
+}
+
+.save-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    background: #0b0b1a;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.save-btn:hover {
+    cursor: pointer;
+    background-color: #4faf7d;
+}
+
+.advice {
+    background: #fff;
+    border-radius: 18px;
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+}
+
+.advice h2 {
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+
+.advice ul {
+    padding-left: 18px;
+    margin: 0;
+}
+
+.advice li {
+    margin: 8px 0;
+}
+
+.title-box {
+    background-color: white;
+    padding: 20px;
+    margin: 25px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px groove #E5E5E5;
+    border-radius: 20px;
+}
+
+.title {
+    padding: 5px;
+    font-family: "Inter", sans-serif;
+    font-weight: 350;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#title-bold {
+    font-weight: bold;
+}
+
+.panel-title i,
+.break-item div i,
+.card-title i{
+    transform: translateY(0px);
+}
+
+@media (max-width: 960px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 320px) {
+    #wrapper {
+        padding: 0 12px 24px;
+    }
+
+    .title-box {
+        padding: 12px;
+        margin: 16px 0;
+    }
+
+    .title {
+        font-size: 0.9rem;
+    }
+
+    #title-bold {
+        font-size: 1rem;
+    }
+
+    .layout {
+        gap: 12px;
+    }
+
+    .card {
+        padding: 12px;
+    }
+
+    .card-title {
+        font-size: 14px;
+        gap: 8px;
+    }
+
+    .card-title i {
+        font-size: 16px;
+    }
+
+    input[type=number] {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    .impact-panel {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .panel-title {
+        font-size: 0.95rem;
+        gap: 6px;
+    }
+
+    .stats {
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 8px;
+        gap: 10px;
+    }
+
+    .stat-card .label {
+        font-size: 0.85rem;
+    }
+
+    .stat-card .value {
+        font-size: 1.2em;
+    }
+
+    .net-big {
+        font-size: 16px;
+    }
+
+    .net-sub {
+        font-size: 12px;
+    }
+
+    .breakdown {
+        padding: 10px;
+    }
+
+    .break-item {
+        padding: 4px 0;
+    }
+
+    .break-item .name {
+        font-size: 0.9rem;
+    }
+
+    .amount {
+        font-size: 0.9rem;
+    }
+
+    .save-btn {
+        padding: 8px;
+        font-size: 0.95rem;
+    }
+
+    .advice h2 {
+        font-size: 16px;
+    }
+
+    .advice ul {
+        padding-left: 14px;
+    }
+
+    .weekly-impact {
+        padding: 12px;
+    }
+
+    .weekly-impact .note {
+        font-size: 0.9rem;
+    }
+}
+
+.weekly-impact {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    margin-top: 16px;
+}
+
+.weekly-impact .chart {
+    height: 160px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    border: 1px dashed #bbb;
+}
+
+.weekly-impact .note {
+    text-align: center;
+    margin-top: 10px;
+    color: #666;
+}

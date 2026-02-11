@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Faustina:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Noto+Sans+Syriac:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@300&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+.notify {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 12px;
+    padding: 15px;
+    min-width: 350px;
+    max-width: 420px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    animation: slideUp 0.35s ease-out;
+    z-index: 1000;
+
+    font-family: 'Poppins',serif;
+}
+
+.notify+.notify {
+    margin-top: 85px;
+}
+
+/*approve*/
+.green {
+    background-color: #e8f9e8;
+    border-left: 5px solid #28a745;
+    color: #28a745;
+}
+
+.green .main {
+    color: #28a745;
+}
+
+/*reject*/
+.red {
+    background-color: #ffe8e8;
+    border-left: 5px solid #dc3545;
+    color: #dc3545;
+}
+
+.red .main {
+    color: #dc3545;
+}
+
+/*info*/
+.yellow {
+    background-color: #fff9e6;
+    border-left: 5px solid #f1c40f;
+    color: #f1c40f;
+}
+
+.yellow .main {
+    color: #f1c40f;
+}
+
+.room {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pop {
+    font-size: 3rem;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    flex: 1;
+}
+
+.Bigtitle {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.mssg {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.3rem;
+}
+
+.close-btn {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    color: #555;
+    padding-left: 5px;
+    font-size: 1.4rem;
+    transition: 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+.notify.show {
+    bottom: 30px;
+    opacity: 1;
+    display:flex;
+    animation: slideUp .5s ease-out;
+}
+.notify.hide {
+    animation: slideDown .5s ease-in forwards;
+}
+.hidden{
+    display:none;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: -80px;
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .notify {
+        min-width: 240px;
+        right: 10px;
+        left: 10px;
+    }
+}

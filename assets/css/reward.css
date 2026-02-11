@@ -1,0 +1,557 @@
+/* page layout */
+.dashboard-container {
+    max-width: 100%; 
+    margin: 0 auto;
+    padding: 40px 48px; 
+    box-sizing: border-box;
+}
+
+/* header section */
+.page-header-block {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #c4d9c7;
+    border-radius: 20px;
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow-card);
+}
+
+.header-text h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.header-text p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* create button styling */
+.btn-create {
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-create:hover {
+    background: var(--leaf-500);
+    transform: translateY(-2px);
+}
+
+/* reward cards grid */
+.rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+/* individual card styling */
+.reward-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid #c4d9c7;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+}
+
+.reward-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* image area */
+.card-image-wrapper {
+    height: 220px;
+    background: #f0fdf4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid var(--leaf-50);
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-image-wrapper.is-inactive {
+    background: #f1f5f9;
+}
+
+.card-image-wrapper.is-inactive img {
+    filter: grayscale(100%) brightness(0.7);
+}
+
+.status-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 2;
+}
+
+.hint-text {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.status-active { 
+    color: #16a34a; 
+}
+
+.status-inactive { 
+    color: #dc2626; 
+}
+
+/* card content */
+.card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.card-desc {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.4;
+    height: 40px;
+    overflow: hidden;
+}
+
+/* quick edit inputs row */
+.card-inputs-row {
+    display: flex;
+    gap: 16px;
+}
+
+.input-group-small {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group-small label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.input-group-small label i {
+    margin-right: 6px;
+    color: var(--leaf-600);
+    font-size: 1.2em;
+    vertical-align: middle;
+    transform:translateY(0px);
+}
+
+.input-group-small input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #c4d9c7;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    outline: none;
+    background: white;
+    transition: border-color 0.2s;
+}
+
+.input-group-small input:focus {
+    border-color: var(--leaf-500);
+}
+
+/* action buttons row */
+.card-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.btn-save-card {
+    flex: 1;
+    background: var(--leaf-500);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-save-card:hover { 
+    background: var(--leaf-600); 
+}
+
+.btn-delete-card {
+    flex: 1;
+    background: #e2e8f0;
+    color: #475569;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-delete-card:hover { 
+    background: #cbd5e1;
+    color: #1e293b; 
+}
+
+.no-rewards {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #64748b; 
+}
+
+/* modal styling */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s;
+}
+
+.modal-card {
+    background: #f8fafc;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 24px;
+    border: 1px solid #c4d9c7; 
+    padding: 0;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #c4d9c7; 
+    background: white;
+    border-radius: 24px 24px 0 0;
+}
+
+.modal-title h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+}
+.modal-title p {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    color: #64748b;
+}
+
+.close-btn:hover { 
+    color: var(--text-dark); 
+}
+
+.modal-body {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* modal inputs */
+.modal-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.modal-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #c4d9c7; 
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    background: white;
+    transition: border-color 0.2s;
+    font-family: "Inter", sans-serif;
+}
+.modal-input:focus { 
+    border-color: var(--leaf-500); 
+}
+
+
+textarea.modal-input {
+    resize: none; /* prevents user dragging */
+    height: 200px; /* makes it taller */
+}
+
+.row-inputs {
+    display: flex;
+    gap: 20px;
+}
+
+.row-input {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.upload-area {
+background: white;
+    border: 2px dashed #c4d9c7;
+    height: 120px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.upload-area:hover { 
+    border-color: var(--leaf-500); 
+    color: var(--leaf-600); 
+}
+
+/* hide real input */
+.upload-area input[type="file"] {
+    display: none;
+}
+
+.upload-text {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0 12px;
+    /* handle long filenames */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+
+/* modal create button */
+.btn-create-modal {
+    width: 100%;
+    padding: 16px;
+    background: var(--leaf-500); 
+    color: white;
+    font-weight: 600;
+    border: none;
+    font-size: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.btn-create-modal:hover {
+    background: var(--leaf-600);
+}
+
+.error-text {
+    display: none;
+    margin-top: 6px;
+    font-size: 0.8rem;
+    color: #dc2626; 
+}
+
+.error-text.show {
+    display: block;
+}
+
+.success-text {
+    display: none;
+    margin-top: 6px;
+    font-size: 0.8rem;
+    color: #16a34a; 
+}
+
+.success-text.show {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+/* mobile responsive */
+@media (max-width: 425px) {
+    
+    /* reduce container padding */
+    .dashboard-container {
+        padding: 24px 16px;
+    }
+
+    /* header: stack content vertically */
+    .page-header-block {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px;
+    }
+
+    /* make button full width for easier tapping */
+    .btn-create {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* grid: force single column */
+    .rewards-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    /* modal: stack input rows vertically */
+    .row-inputs {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .row-inputs {
+        flex-direction: column;
+    }
+
+    /* adjust modal padding */
+    .modal-header, 
+    .modal-body {
+        padding: 20px;
+    }
+
+    /* card inputs: ensure enough space */
+    .card-inputs-row {
+        gap: 12px;
+    }
+}
+
+/* --- redemption page styles --- */
+
+/* sub note text in header */
+.sub-note {
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    margin-top: 8px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* info row for points and stock */
+.card-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* pushes to bottom of content area */
+    margin-bottom: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--leaf-50);
+}
+
+.points-tag {
+    font-weight: 700;
+    color: var(--leaf-700);
+    font-size: 1rem;
+}
+
+.points-tag i {
+    margin-right: 6px;
+    color: var(--leaf-600);
+    font-size: 1.1em;
+    vertical-align: middle;
+    transform:translateY(0px);
+}
+
+
+.stock-tag {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* redeem button styling */
+.btn-redeem {
+    width: 100%;
+    padding: 12px;
+    background: var(--leaf-500); 
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-redeem:hover {
+    background: var(--leaf-700);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 175, 125, 0.3);
+}
+
+.btn-redeem.disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}

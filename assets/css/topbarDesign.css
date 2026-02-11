@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lobster&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@300&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/*topbar design*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* .topbar,.navigation{
+    opacity:0;
+} */
+
+body {
+    /* height: 1000vh; */
+    background-color: #EFFDF4;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 8px 20px;
+    background-color: #008F7A;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+}
+
+.table-avatar {
+    width: 60px;
+    height: 60px;
+    background: #9fd7b3;
+    color: #008F7A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.notification {
+    position: relative;
+    display: inline-block;
+}
+
+.notification .badge {
+    position: absolute;
+    top: 17px;
+    right: 12px;
+
+    padding: 5px 5px;
+    border-radius: 100%;
+
+    background-color: #FF5733;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.logo img {
+    height: 45px;
+    width: auto;
+    margin-left: 20px;
+}
+
+.small-icon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    bottom: 3px;
+}
+
+.small-icon>a>i,
+.profile-trigger>div>i {
+    font-size: 26px;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+.small-icon>a>i:hover,
+.profile-trigger>div>i:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #FFFBE0;
+}
+
+/* style the <i> when its parent <a> has .active */
+.small-icon a.active>i {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #FFFBE0;
+}
+
+.profile-trigger {
+    position: relative;
+}
+
+.profile {
+    padding: 10px 12px;
+    background-color: #DFF4E7;
+    width: 240px;
+    border-radius: 18px;
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    top: 48px;
+    right: 0;
+
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.25s ease;
+    z-index: 300;
+}
+
+.profile-trigger:hover .profile {
+    visibility: visible;
+    opacity: 1;
+}
+
+.user-info {
+    display: flex;
+    padding: 10px 0px;
+    align-items: center;
+    gap: 5px;
+    justify-content: flex-start;
+}
+
+.personal>#account {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    word-break: break-word;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.personal>#email {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    word-break: break-word;
+    font-size: 0.8em;
+}
+
+.small-icon a {
+    text-decoration: none;
+}
+
+.action {
+    margin-bottom: 5px;
+}
+
+.action .edit,
+.action .logout {
+    text-align: left;
+    text-decoration: none;
+}
+
+.action>a>div {
+    padding: 10px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 0.9em;
+    color: black;
+}
+
+.action div:hover {
+    background-color: #C6EFD3;
+    border-radius: 30px;
+    color: #004B40;
+}
+
+
+/*navigation design*/
+.navigation {
+    top: 61px;
+    background-color: #DFF4E7;
+    width: 100%;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    border-bottom: 1px solid #C3E4D1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.navbar ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.navbar ul li,
+.event-dropdown .event-1,
+.DIY-dropdown .diy-1 {
+    /* height: 46px; */
+    line-height: 45px;
+}
+
+.navbar ul li a,
+.event-dropdown .event-1 a,
+.DIY-dropdown .diy-1 a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    border-radius: 35px;
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    color: #004B40;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.navbar ul li a:hover,
+.event-dropdown .event-1 a:hover,
+.DIY-dropdown .diy-1 a:hover {
+    background-color: #C6EFD3;
+    cursor: pointer;
+    color: #004B40;
+}
+
+.navbar ul li a.active {
+    background-color: #C6EFD3;
+    color: #004B40;
+}
+
+.navbar ul li a,
+.event a,
+.DIY a {
+    padding: 0 45px;
+}
+
+.event-dropdown div a,
+.DIY-dropdown div a {
+    padding: 0px 10px;
+}
+
+.event-dropdown .event-1,
+.DIY-dropdown .diy-1 {
+    padding: 2px 5px;
+    text-align: left;
+}
+
+.event,
+.DIY {
+    position: relative;
+}
+
+.event-dropdown,
+.DIY-dropdown {
+    border-radius: 25px;
+    background-color: rgb(223, 244, 231);
+    position: absolute;
+
+    padding: 5px 0px 6px 0px;
+    width: 200px;
+    height: auto;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.navbar ul::-webkit-scrollbar {
+    display: none;
+    /*hide scroll bar*/
+}
+
+i {
+    text-align: center;
+    font-size: 20px;
+    padding: 0px;
+    margin: 0px;
+    transform: translateY(5px);
+}
+
+@media screen and (max-width: 600px) {
+
+
+    /*topbar*/
+    .topbar {
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .logo>img {
+        width: auto;
+        margin-left: 0px;
+        height: 45px;
+    }
+
+    .small-icon {
+        /* margin-right: 10px; */
+        margin-bottom: 5px;
+        gap: 5px;
+    }
+
+    .small-icon>a>i,
+    .profile-trigger>a>i {
+        font-size: 26px;
+        font-weight: 500;
+        height: 45px;
+        width: 45px;
+        border-radius: 100px;
+
+    }
+
+    /*navigation bar*/
+    .navigation {
+        top: 66px;
+    }
+
+    .navbar ul {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .navbar ul::-webkit-scrollbar {
+        display: none;
+        /*hide scroll bar*/
+    }
+
+    .navbar ul li {
+        flex: 0 0 auto;
+        /*flex-grow flex-shrink flex-basis*/
+    }
+
+}
